@@ -1,0 +1,32 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  docker:
+    compose:
+      profiles:
+        active: dev
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_REALM:http://localhost:9090/auth/realms/rh30}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sampleDB
+    driverClassName: org.postgresql.Driver
+    username: user
+    password: password
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+        show_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+
+
+
+cors:
+  allowed-origins: http://localhost:3000
