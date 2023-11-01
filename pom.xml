@@ -18,6 +18,7 @@
         <archunit-junit5-api.version>1.0.1</archunit-junit5-api.version>
         <h2.version>2.2.220</h2.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <keycloak-admin-client.version>22.0.1</keycloak-admin-client.version>
     </properties>
     <dependencies>
         <dependency>
@@ -73,6 +74,11 @@
             <artifactId>archunit-junit5-api</artifactId>
             <version>${archunit-junit5-api.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-admin-client</artifactId>
+            <version>${keycloak-admin-client.version}</version>
         </dependency>
     </dependencies>
 

@@ -10,7 +10,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_REALM:http://localhost:9090/auth/realms/rh30}
+          issuer-uri: ${KEYCLOAK_REALM:http://localhost:9090/auth/realms/crediblepulse}
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
   datasource:
     url: jdbc:postgresql://localhost:5432/sampleDB
@@ -23,10 +23,17 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL10Dialect
         show_sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
 
 
+
+keycloakAdmin:
+  serverUrl: http://localhost:9090/auth
+  poolSize: 5
+  realm: crediblepulse
+  clientId: crediblepulse-api
+  clientSecret: XBzW21rl5zqpMdh9rMqduQd9xnIlksLF
 
 
 cors:
-  allowed-origins: http://localhost:3000
+  allowed-origins: http://localhost:5432
