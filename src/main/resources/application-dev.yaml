@@ -37,3 +37,23 @@ keycloakAdmin:
 
 cors:
   allowed-origins: http://localhost:5432
+
+
+#springdoc
+springdoc:
+  packages-to-scan: xyz.crediblepulse
+  paths-to-match: /**
+  title: CrediblePulse API
+  description: CrediblePulse API
+  contact:
+    name: CrediblePulse
+    url: https://CrediblePulse.xyz
+    email: zakaressaiydy@gmail.com
+  swagger-ui:
+    enabled: true
+    oauth:
+      issuer: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}
+      client-id: crediblepulse-api
+      endpoint: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}
+      use-pkce-with-authorization-code-grant: true
+    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect.html
