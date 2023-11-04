@@ -1,21 +1,18 @@
 # CrediblePulse-back-end
-The branch name must be like
 
-for the changes: feature/CPULSE-ticket_id
-for the bugs: bugfix/CPULSE-bug_id
-for the config ticket: config/CPULSE-7863_setup-sonar
+## Branch Naming Convention
+- **Features:** `feature/CPULSE-ticket_id`
+- **Bugs:** `bugfix/CPULSE-bug_id`
+- **Configuration Tickets:** `config/CPULSE-7863_setup-sonar`
 
-And for the commits
+## Commit Messages Convention
+- **Features:** `feature #CPULSE-1 : add listing service`
+- **Multiple Tickets in a Commit (Features):** `feature #CPULSE-11 #CPULSE-34 #CPULSE-66 : add mode-payment page`
+- **Bug Fixes:** `bugfix #CPULSE-12 : fix NullPointerException issue`
+- **Hotfixes:** `hotfix #CPULSE-955 : add missing WS urls`
+- **Configuration Changes:** `config #CPULSE-8 : update Sonar config`
+- **Commits Without Story:** `#CPULSE-0`
 
-The commits must be like :
-feature #CPULSE-1 : add listing service
-feature #CPULSE-11 #CPULSE-34 #CPULSE-66 : add mode-payement page
-bugfix #CPULSE-12 : fix NullPointerException issue
-hotfix #CPULSE-955 : add missing WS urls
-config #CPULSE-8 : update Sonar config
+## Subtask Commit Message Format
+- **Regex:** `/(feature|bugfix|hotfix|config) #CPULSE-task_id #CPULSE-subTask_id: descriptive_message/`
 
-
-The commits without story must named as : "#CPULSE-0" and the same for branch name
-
-
-for commit message of subtask must respect this regex: (feature,bugfix...) #CPULSE-task_id #CPULSE-subTask_id: descriptive_message
