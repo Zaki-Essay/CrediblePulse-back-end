@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static xyz.crediblepulse.crediblepulsebackend.config.constants.ApiPaths.*;
+import static xyz.crediblepulse.crediblepulsebackend.constants.ApiPaths.*;
 
 @Configuration
 @EnableWebSecurity
