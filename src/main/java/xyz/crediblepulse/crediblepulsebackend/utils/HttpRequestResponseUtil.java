@@ -1,4 +1,4 @@
-package com.nemo.mypath.core.utils;
+package xyz.crediblepulse.crediblepulsebackend.utils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;

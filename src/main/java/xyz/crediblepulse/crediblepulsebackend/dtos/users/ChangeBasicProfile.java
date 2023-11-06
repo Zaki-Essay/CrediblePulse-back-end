@@ -1,4 +1,4 @@
-package com.nemo.mypath.dtos.users;
+package xyz.crediblepulse.crediblepulsebackend.dtos.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

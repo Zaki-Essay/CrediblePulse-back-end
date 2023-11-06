@@ -1,12 +1,8 @@
-package com.nemo.mypath.dtos.users;
+package xyz.crediblepulse.crediblepulsebackend.dtos.users;
+
+import lombok.*;
 
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @Getter

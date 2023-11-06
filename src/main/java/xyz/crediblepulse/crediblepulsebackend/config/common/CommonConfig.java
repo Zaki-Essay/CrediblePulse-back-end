@@ -1,4 +1,4 @@
-package com.nemo.mypath.core.config;
+package xyz.crediblepulse.crediblepulsebackend.config.common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

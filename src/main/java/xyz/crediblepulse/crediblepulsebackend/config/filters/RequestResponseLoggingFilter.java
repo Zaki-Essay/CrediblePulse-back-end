@@ -1,19 +1,21 @@
-package com.nemo.mypath.core.filters;
+package xyz.crediblepulse.crediblepulsebackend.config.filters;
 
-import com.nemo.mypath.core.constants.PathParams;
-import com.nemo.mypath.core.security.CurrentUserProvider;
+
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import xyz.crediblepulse.crediblepulsebackend.config.security.CurrentUserProvider;
+import xyz.crediblepulse.crediblepulsebackend.constants.PathParams;
+
+import java.io.IOException;
 
 @Component
 @Order(0)
