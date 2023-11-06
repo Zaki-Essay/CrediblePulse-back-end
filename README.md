@@ -3,7 +3,7 @@
 ## Branch Naming Convention
 - **Features:** `feature/CPULSE-ticket_id`
 - **Bugs:** `bugfix/CPULSE-bug_id`
-- **Configuration Tickets:** `config/CPULSE-7863_setup-sonar`
+- **Configuration Tickets:** `config/CPULSE-setup-sonar`
 - **Refactoring:** `refactor/CPULSE-refactor_id`
 - **Documentation:** `docs/CPULSE-doc_id`
 - **Tests:** `test/CPULSE-test_id`
