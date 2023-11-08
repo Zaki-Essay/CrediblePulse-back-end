@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import xyz.crediblepulse.crediblepulsebackend.config.security.CurrentUserProvider;
 import xyz.crediblepulse.crediblepulsebackend.constants.PathParams;
 import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserRequestDto;
+import xyz.crediblepulse.crediblepulsebackend.exception.exceptions.ApiBusinessException;
 import xyz.crediblepulse.crediblepulsebackend.service.UserService;
 
 import static xyz.crediblepulse.crediblepulsebackend.config.swagger.SwaggerOpenIdConfig.OPEN_ID_SCHEME_NAME;
@@ -36,7 +37,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public String create(
             @RequestParam(value = PathParams.REQUEST_ID) String requestId, @RequestBody UserRequestDto user)
-            throws Exception {
+            throws ApiBusinessException {
         LOGGER.info("Start adding new user with userId {} and requestId: {}", user.email(), requestId);
         return userService.create(user);
     }

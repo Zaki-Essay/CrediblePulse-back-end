@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApiBusinessException extends Exception {
-
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -29,9 +28,9 @@ public class ApiBusinessException extends Exception {
         subErrors = new ArrayList<>();
     }
 
-    public ApiBusinessException(KeyValueError keyValueError, List<ErrorMessage> subErrors, String... args) {
+    public ApiBusinessException(KeyValueError keyValueError, List<ErrorMessage> subErrors) {
         super(keyValueError.getMsgKey());
-        errorMessage = new ErrorMessage(keyValueError.getMsgKey(), keyValueError.getCode(), args);
+        errorMessage = new ErrorMessage(keyValueError.getMsgKey(), keyValueError.getCode());
         this.subErrors = subErrors;
     }
 

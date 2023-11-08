@@ -8,9 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import xyz.crediblepulse.crediblepulsebackend.config.keycloak.config.Credentials;
+import xyz.crediblepulse.crediblepulsebackend.config.keycloak.exceptions.UserCreationException;
 import xyz.crediblepulse.crediblepulsebackend.config.keycloak.provider.UserManagementProvider;
 import xyz.crediblepulse.crediblepulsebackend.config.security.CurrentUserProvider;
 import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserRequestDto;
+import xyz.crediblepulse.crediblepulsebackend.exception.dto.ApiErrorCodes;
+import xyz.crediblepulse.crediblepulsebackend.exception.exceptions.ApiBusinessException;
 import xyz.crediblepulse.crediblepulsebackend.mappers.UserMapper;
 import xyz.crediblepulse.crediblepulsebackend.model.entities.user.User;
 import xyz.crediblepulse.crediblepulsebackend.model.repository.AuthAccountRepository;
@@ -36,24 +39,25 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Override
-    public String create(UserRequestDto userRequestDto) throws Exception {
+    public String create(UserRequestDto userRequestDto) throws ApiBusinessException {
+
         UserValidator.validate(userRequestDto);
 
         User user = persistUser(userRequestDto);
 
         createKeycloakUser(userRequestDto);
 
+
         return user.getId() != null ? user.getId().toString() : null;
     }
 
-    private void createKeycloakUser(UserRequestDto userRequestDto) throws Exception
-    {
+    private void createKeycloakUser(UserRequestDto userRequestDto) throws ApiBusinessException {
 
         LOGGER.info("begin creating user with userId {} in keycloak ", userRequestDto.email());
 
         if (Boolean.TRUE.equals(userManagementProvider.existsByEmail(userRequestDto.email()))) {
             LOGGER.error("User with userId {} already exists ", userRequestDto.email());
-            throw new RuntimeException();
+            throw new ApiBusinessException(ApiErrorCodes.USER_CREATION_ERROR);
         }
 
         UserRepresentation keycloakUser = userMapper.mapToKeycloakUser(userRequestDto);
@@ -69,13 +73,11 @@ public class UserServiceImpl implements UserService {
                     null);
         } catch (Exception e) {
             LOGGER.error("User with userId {} cannot be created ", userRequestDto.email());
-            throw new RuntimeException();
+            throw new ApiBusinessException(ApiErrorCodes.USER_CREATION_ERROR);
         }
 
         LOGGER.info("user with userId {} created in keycloak ", userRequestDto.email());
     }
-
-
 
     private void setPassword(UserRepresentation keycloakUser, String password) {
         CredentialRepresentation credential = Credentials.createPasswordCredentials(password);
@@ -83,15 +85,13 @@ public class UserServiceImpl implements UserService {
         keycloakUser.setEnabled(true);
     }
 
-
-
-    private User persistUser(UserRequestDto userRequestDto) throws Exception {
+    private User persistUser(UserRequestDto userRequestDto) throws ApiBusinessException {
 
         LOGGER.info("begin creating user with userId {} locally ", userRequestDto.email());
 
         if (userRepository.findByEmail(userRequestDto.email()).isPresent()) {
             LOGGER.error("User with userId {} already exists ", userRequestDto.email());
-            throw new RuntimeException();
+            throw new ApiBusinessException(ApiErrorCodes.USER_CREATION_ERROR);
         }
 
         User user = User.builder()
