@@ -1,17 +1,13 @@
 package xyz.crediblepulse.crediblepulsebackend.validators;
 
-
-
-import xyz.crediblepulse.crediblepulsebackend.utils.DatesUtils;
+import static xyz.crediblepulse.crediblepulsebackend.constants.DateFormats.LDT_FORMAT;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import static xyz.crediblepulse.crediblepulsebackend.constants.DateFormats.LDT_FORMAT;
-
+import xyz.crediblepulse.crediblepulsebackend.utils.DatesUtils;
 
 public interface Validations {
 

@@ -1,21 +1,14 @@
 package xyz.crediblepulse.crediblepulsebackend.mappers;
 
-
+import java.time.ZoneId;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.stereotype.Component;
 import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserProfileRequestDto;
-import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserProfileResponseDto;
 import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserRequestDto;
 import xyz.crediblepulse.crediblepulsebackend.model.entities.user.User;
 
-import java.time.ZoneId;
-import java.util.List;
-
 @Component
 public class UserMapper {
-
-
-
 
     public UserRepresentation mapToKeycloakUser(UserRequestDto user) {
         UserRepresentation keycloakUser = new UserRepresentation();
@@ -32,7 +25,6 @@ public class UserMapper {
         keycloakUser.setLastName(user.lastName());
         return keycloakUser;
     }
-
 
     public void update(User user, UserProfileRequestDto userProfileRequestDto) {
         user.setFirstName(userProfileRequestDto.firstName());

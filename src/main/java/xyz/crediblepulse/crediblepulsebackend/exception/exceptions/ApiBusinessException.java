@@ -1,13 +1,10 @@
 package xyz.crediblepulse.crediblepulsebackend.exception.exceptions;
 
-
-
-import xyz.crediblepulse.crediblepulsebackend.exception.dto.ErrorMessage;
-import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
-
 import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
+import xyz.crediblepulse.crediblepulsebackend.exception.dto.ErrorMessage;
+import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
 
 public class ApiBusinessException extends Exception {
     @Serial

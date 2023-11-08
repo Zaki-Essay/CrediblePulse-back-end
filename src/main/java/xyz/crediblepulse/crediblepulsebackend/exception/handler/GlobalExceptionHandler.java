@@ -1,6 +1,10 @@
 package xyz.crediblepulse.crediblepulsebackend.exception.handler;
 
+import static java.util.Collections.emptyList;
+import static xyz.crediblepulse.crediblepulsebackend.exception.holders.CommonErrorCodes.*;
 
+import java.util.Arrays;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -20,12 +24,6 @@ import xyz.crediblepulse.crediblepulsebackend.exception.dto.ApiErrorResponse;
 import xyz.crediblepulse.crediblepulsebackend.exception.exceptions.ApiAuthorizationException;
 import xyz.crediblepulse.crediblepulsebackend.exception.exceptions.ApiBusinessException;
 import xyz.crediblepulse.crediblepulsebackend.exception.exceptions.ApiTechnicalException;
-
-import java.util.Arrays;
-import java.util.Optional;
-
-import static java.util.Collections.emptyList;
-import static xyz.crediblepulse.crediblepulsebackend.exception.holders.CommonErrorCodes.*;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice

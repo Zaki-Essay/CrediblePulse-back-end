@@ -1,11 +1,9 @@
 package xyz.crediblepulse.crediblepulsebackend.model.entities.user;
 
-
 import jakarta.persistence.*;
+import java.io.Serializable;
 import lombok.*;
 import xyz.crediblepulse.crediblepulsebackend.model.technical.BusinessEntity;
-
-import java.io.Serializable;
 
 @Entity
 @Table(name = "auth_accounts")

@@ -1,6 +1,5 @@
 package xyz.crediblepulse.crediblepulsebackend.exception.holders;
 
-
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
 
 public enum CommonErrorCodes implements KeyValueError {

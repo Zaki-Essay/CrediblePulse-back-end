@@ -1,6 +1,7 @@
 package xyz.crediblepulse.crediblepulsebackend.service.impl;
 
 import jakarta.transaction.Transactional;
+import java.util.Collections;
 import lombok.RequiredArgsConstructor;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
@@ -8,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import xyz.crediblepulse.crediblepulsebackend.config.keycloak.config.Credentials;
-import xyz.crediblepulse.crediblepulsebackend.config.keycloak.exceptions.UserCreationException;
 import xyz.crediblepulse.crediblepulsebackend.config.keycloak.provider.UserManagementProvider;
 import xyz.crediblepulse.crediblepulsebackend.config.security.CurrentUserProvider;
 import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserRequestDto;
@@ -22,15 +22,12 @@ import xyz.crediblepulse.crediblepulsebackend.service.UserService;
 import xyz.crediblepulse.crediblepulsebackend.types.UserStatus;
 import xyz.crediblepulse.crediblepulsebackend.validators.UserValidator;
 
-import java.util.Collections;
-
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
-
 
     private final UserRepository userRepository;
     private final AuthAccountRepository authAccountRepository;
@@ -46,7 +43,6 @@ public class UserServiceImpl implements UserService {
         User user = persistUser(userRequestDto);
 
         createKeycloakUser(userRequestDto);
-
 
         return user.getId() != null ? user.getId().toString() : null;
     }
@@ -106,12 +102,4 @@ public class UserServiceImpl implements UserService {
 
         return userRepository.save(user);
     }
-
-
-
-
-
-
 }
-
-

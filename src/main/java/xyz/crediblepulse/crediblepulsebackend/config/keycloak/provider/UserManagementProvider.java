@@ -1,8 +1,7 @@
 package xyz.crediblepulse.crediblepulsebackend.config.keycloak.provider;
 
-import org.keycloak.representations.idm.UserRepresentation;
-
 import java.util.List;
+import org.keycloak.representations.idm.UserRepresentation;
 
 public interface UserManagementProvider {
 

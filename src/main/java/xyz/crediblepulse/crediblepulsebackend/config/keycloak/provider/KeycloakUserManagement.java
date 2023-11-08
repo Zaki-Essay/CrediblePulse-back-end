@@ -4,6 +4,8 @@ import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Response;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.CreatedResponseUtil;
 import org.keycloak.admin.client.Keycloak;
@@ -20,9 +22,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import xyz.crediblepulse.crediblepulsebackend.config.keycloak.exceptions.UserCreationException;
 import xyz.crediblepulse.crediblepulsebackend.config.keycloak.exceptions.UserSuspensionException;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class KeycloakUserManagement implements UserManagementProvider {

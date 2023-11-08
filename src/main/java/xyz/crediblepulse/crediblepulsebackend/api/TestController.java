@@ -10,15 +10,14 @@ import xyz.crediblepulse.crediblepulsebackend.config.security.CurrentUserProvide
 public class TestController {
 
     CurrentUserProvider currentUserProvider;
+
     @GetMapping("/test")
-    public String test(){
-        return "hello "+currentUserProvider.getUsername();
+    public String test() {
+        return "hello " + currentUserProvider.getUsername();
     }
 
     @GetMapping("/api/v1/public/test")
-    public String testPublicPath(){
+    public String testPublicPath() {
         return "public path is working good";
     }
-
-
 }

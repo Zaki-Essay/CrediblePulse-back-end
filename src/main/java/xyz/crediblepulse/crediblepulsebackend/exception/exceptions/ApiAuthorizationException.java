@@ -1,11 +1,8 @@
 package xyz.crediblepulse.crediblepulsebackend.exception.exceptions;
 
-
-
+import java.io.Serial;
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.ErrorMessage;
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
-
-import java.io.Serial;
 
 public class ApiAuthorizationException extends IllegalArgumentException {
 

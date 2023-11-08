@@ -2,12 +2,11 @@ package xyz.crediblepulse.crediblepulsebackend.exception.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Getter;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import lombok.Getter;
 
 @Getter
 public class ApiErrorResponse implements Serializable {
