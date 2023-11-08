@@ -48,7 +48,8 @@ public class WebSecurityConfig {
             "/configuration/ui",
             "/configuration/security",
             "/webjars/**",
-            "/actuator/**"
+            "/actuator/**",
+            API + V1 + PUBLIC + "/**"
     };
 
     @Value("#{'${cors.allowed-origins}'.split(',')}")
@@ -106,8 +107,6 @@ public class WebSecurityConfig {
                 .permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
                 .permitAll()
-                .requestMatchers(mvc.matchers(API + V1 + PUBLIC + "/**"))
-                .permitAll()
                 .anyRequest()
                 .authenticated());
 
@@ -137,7 +136,7 @@ public class WebSecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(RequestMatcherBuilder mvc) {
 
-        return web -> web.ignoring().requestMatchers(mvc.matchers(IGNORING_LIST));
+        return web -> web.ignoring().requestMatchers(mvc.matchers(API + V1 + PUBLIC + "/**"));
     }
 
     @Bean

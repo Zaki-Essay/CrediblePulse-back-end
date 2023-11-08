@@ -14,4 +14,11 @@ public class TestController {
     public String test(){
         return "hello "+currentUserProvider.getUsername();
     }
+
+    @GetMapping("/api/v1/public/test")
+    public String testPublicPath(){
+        return "public path is working good";
+    }
+
+
 }

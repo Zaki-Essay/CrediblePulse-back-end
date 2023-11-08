@@ -1,6 +1,5 @@
 package xyz.crediblepulse.crediblepulsebackend.config.filters;
 
-
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

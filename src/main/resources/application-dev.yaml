@@ -30,9 +30,9 @@ spring:
 keycloakAdmin:
   serverUrl: http://localhost:9090/auth
   poolSize: 5
-  realm: crediblepulse
-  clientId: crediblepulse-api
-  clientSecret: XBzW21rl5zqpMdh9rMqduQd9xnIlksLF
+  realm: crediblepulse-app
+  clientId: mypath-api
+  clientSecret: FsuLGnqBteQwILfTrRktDPSNgUcpgqJI
 
 
 cors:
