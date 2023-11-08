@@ -1,4 +1,4 @@
-package xyz.crediblepulse.crediblepulsebackend.config.constants;
+package xyz.crediblepulse.crediblepulsebackend.constants;
 
 public final class PathParams {
 

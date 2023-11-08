@@ -7,7 +7,7 @@ services:
       - 5432:5432
     environment:
       - 'POSTGRES_USER=user'
-      - 'POSTGRES_DB=sampleDB'
+      - 'POSTGRES_DB=crediblepulseDB'
       - 'POSTGRES_PASSWORD=password'
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -17,7 +17,7 @@ services:
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: postgres
-      DB_DATABASE: sampleDB
+      DB_DATABASE: crediblepulseDB
       DB_USER: user
       DB_SCHEMA: public
       DB_PASSWORD: password

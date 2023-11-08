@@ -47,4 +47,6 @@ public class User extends BusinessEntity<String> implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<AuthAccount> authAccounts;
 
+    private Boolean verified;
+
 }
