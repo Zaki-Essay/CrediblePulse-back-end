@@ -6,7 +6,7 @@ import xyz.crediblepulse.crediblepulsebackend.dtos.users.UserRequestDto;
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.ApiErrorCodes;
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.ErrorMessage;
 import xyz.crediblepulse.crediblepulsebackend.exception.exceptions.ApiBusinessException;
-import xyz.crediblepulse.crediblepulsebackend.exception.holders.CommonErrorCodes;
+import xyz.crediblepulse.crediblepulsebackend.exception.dto.CommonErrorCodes;
 
 public interface UserValidator {
 

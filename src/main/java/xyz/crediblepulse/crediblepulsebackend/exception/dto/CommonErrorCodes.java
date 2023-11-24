@@ -1,4 +1,4 @@
-package xyz.crediblepulse.crediblepulsebackend.exception.holders;
+package xyz.crediblepulse.crediblepulsebackend.exception.dto;
 
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
 

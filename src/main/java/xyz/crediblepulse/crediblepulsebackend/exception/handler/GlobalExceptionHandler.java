@@ -1,7 +1,7 @@
 package xyz.crediblepulse.crediblepulsebackend.exception.handler;
 
 import static java.util.Collections.emptyList;
-import static xyz.crediblepulse.crediblepulsebackend.exception.holders.CommonErrorCodes.*;
+import static xyz.crediblepulse.crediblepulsebackend.exception.dto.CommonErrorCodes.*;
 
 import java.util.Arrays;
 import java.util.Optional;
