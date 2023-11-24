@@ -39,4 +39,7 @@ public class UserController {
         LOGGER.info("Start adding new user with userId {} and requestId: {}", user.email(), requestId);
         return userService.create(user);
     }
+
+
+
 }

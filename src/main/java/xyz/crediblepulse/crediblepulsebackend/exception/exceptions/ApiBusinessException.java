@@ -7,6 +7,7 @@ import xyz.crediblepulse.crediblepulsebackend.exception.dto.ErrorMessage;
 import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
 
 public class ApiBusinessException extends Exception {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -25,9 +26,9 @@ public class ApiBusinessException extends Exception {
         subErrors = new ArrayList<>();
     }
 
-    public ApiBusinessException(KeyValueError keyValueError, List<ErrorMessage> subErrors) {
+    public ApiBusinessException(KeyValueError keyValueError, List<ErrorMessage> subErrors, String... args) {
         super(keyValueError.getMsgKey());
-        errorMessage = new ErrorMessage(keyValueError.getMsgKey(), keyValueError.getCode());
+        errorMessage = new ErrorMessage(keyValueError.getMsgKey(), keyValueError.getCode(), args);
         this.subErrors = subErrors;
     }
 
