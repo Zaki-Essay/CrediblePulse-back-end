@@ -9,9 +9,5 @@ public final class PathParams {
     public static final String ROLE = "role";
     public static final String STATUS = "status";
 
-
-
-
-
     private PathParams() {}
 }

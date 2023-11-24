@@ -1,7 +1,5 @@
 package xyz.crediblepulse.crediblepulsebackend.exception.dto;
 
-import xyz.crediblepulse.crediblepulsebackend.exception.dto.KeyValueError;
-
 public enum CommonErrorCodes implements KeyValueError {
     MISSING_FIELD_ERROR(0, "field.not.found"),
     NOT_VALID_FIELD_ERROR(1, "field.not.valid"),

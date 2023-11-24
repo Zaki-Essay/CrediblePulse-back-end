@@ -22,8 +22,6 @@ public enum ApiErrorCodes implements KeyValueError {
     ACTION_INVALID(2614, "action.invalid"),
     ID_INVALID(2614, "id.invalid");
 
-
-
     private final Integer code;
     private final String msgKey;
 
