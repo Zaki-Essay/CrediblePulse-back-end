@@ -1,15 +1,13 @@
 package xyz.crediblepulse.crediblepulsebackend.model.entities.user;
 
-
 import jakarta.persistence.*;
+import java.io.Serializable;
+import java.time.ZoneId;
+import java.util.List;
 import lombok.*;
 import xyz.crediblepulse.crediblepulsebackend.model.technical.BusinessEntity;
 import xyz.crediblepulse.crediblepulsebackend.types.Gender;
 import xyz.crediblepulse.crediblepulsebackend.types.UserStatus;
-
-import java.io.Serializable;
-import java.time.ZoneId;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -48,5 +46,4 @@ public class User extends BusinessEntity<String> implements Serializable {
     private List<AuthAccount> authAccounts;
 
     private Boolean verified;
-
 }

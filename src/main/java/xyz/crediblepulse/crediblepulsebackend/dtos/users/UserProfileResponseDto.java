@@ -1,8 +1,7 @@
 package xyz.crediblepulse.crediblepulsebackend.dtos.users;
 
-import lombok.*;
-
 import java.util.List;
+import lombok.*;
 
 @Data
 @Getter

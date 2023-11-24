@@ -1,5 +1,12 @@
 package xyz.crediblepulse.crediblepulsebackend.config.security;
 
+import static xyz.crediblepulse.crediblepulsebackend.constants.ApiPaths.*;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -25,31 +32,23 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
-
-import static xyz.crediblepulse.crediblepulsebackend.constants.ApiPaths.*;
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfig {
 
     protected static final String[] IGNORING_LIST = {
-            "/v3/api-docs/**",
-            "/v3/api-docs/swagger-config",
-            "/swagger-ui.html",
-            "/swagger-ui/index.html",
-            "/swagger-ui/**",
-            "/swagger-resources/**",
-            "/configuration/ui",
-            "/configuration/security",
-            "/webjars/**",
-            "/actuator/**",
-            API + V1 + PUBLIC + "/**"
+        "/v3/api-docs/**",
+        "/v3/api-docs/swagger-config",
+        "/swagger-ui.html",
+        "/swagger-ui/index.html",
+        "/swagger-ui/**",
+        "/swagger-resources/**",
+        "/configuration/ui",
+        "/configuration/security",
+        "/webjars/**",
+        "/actuator/**",
+        API + V1 + PUBLIC + "/**"
     };
 
     @Value("#{'${cors.allowed-origins}'.split(',')}")

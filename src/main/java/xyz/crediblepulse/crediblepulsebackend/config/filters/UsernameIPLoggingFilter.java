@@ -1,8 +1,8 @@
 package xyz.crediblepulse.crediblepulsebackend.config.filters;
 
-
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
@@ -10,8 +10,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import xyz.crediblepulse.crediblepulsebackend.config.security.CurrentUserProvider;
 import xyz.crediblepulse.crediblepulsebackend.utils.HttpRequestResponseUtil;
-
-import java.io.IOException;
 
 @Component
 @Order(1)
