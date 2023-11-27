@@ -20,7 +20,7 @@ jobs:
           java-version: 17
 
       - name: Unit Tests
-        run: mvn -B test --file pom.xml
+        run: ./mvnw clean verify
 
       - name: Build the application
         run: |
