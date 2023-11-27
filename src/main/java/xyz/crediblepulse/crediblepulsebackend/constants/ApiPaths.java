@@ -16,11 +16,8 @@ public final class ApiPaths {
     // emails
     public static final String EMAILS = "/emails";
 
-
-
     // versions
     public static final String V1 = "/v1";
-
 
     private ApiPaths() {}
 }
