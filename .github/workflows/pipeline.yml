@@ -20,9 +20,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-
 
       - name: Unit tests
         run: |
