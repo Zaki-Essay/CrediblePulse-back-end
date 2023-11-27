@@ -1,0 +1,59 @@
+spring:
+  config:
+    activate:
+      on-profile: default
+  docker:
+    compose:
+      profiles:
+        active: dev
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_REALM:http://localhost:9090/auth/realms/crediblepulse}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crediblepulseDB
+    driverClassName: org.postgresql.Driver
+    username: user
+    password: password
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+        show_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+
+
+keycloakAdmin:
+  serverUrl: http://localhost:9090/auth
+  poolSize: 5
+  realm: crediblepulse
+  clientId: crediblepulse-api
+  clientSecret: zdtkFdgcKqJlivOp2DUsxdC9LrMlsX3x
+
+
+cors:
+  allowed-origins: http://localhost:5432
+
+
+#springdoc
+springdoc:
+  packages-to-scan: xyz.crediblepulse
+  paths-to-match: /**
+  title: CrediblePulse API
+  description: CrediblePulse API
+  contact:
+    name: CrediblePulse
+    url: https://CrediblePulse.xyz
+    email: zakaressaiydy@gmail.com
+  swagger-ui:
+    enabled: true
+    oauth:
+      issuer: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}
+      client-id: crediblepulse-api
+      endpoint: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}
+      use-pkce-with-authorization-code-grant: true
+    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect.html
