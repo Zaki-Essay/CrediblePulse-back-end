@@ -10,17 +10,23 @@ jobs:
     name: Build and Deploy Spring boot for beginner
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: Setup JDK 17
+      - name: Setup Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'corretto'
-          java-version: 17
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-      - name: Unit Tests
-        run: ./mvnw clean verify
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+
+
+      - name: Unit tests
+        run: |
+          ./mvnw clean verify
 
       - name: Build the application
         run: |
