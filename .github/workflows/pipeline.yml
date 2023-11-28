@@ -32,8 +32,7 @@ jobs:
       - name: Unit tests
         run: |
           chmod +x mvnw
-          ./mvnw clean verify
-          
+          ./mvnw clean verify    
 
       - name: 📦 Build Docker Images
         run: |
