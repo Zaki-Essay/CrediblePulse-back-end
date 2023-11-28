@@ -178,10 +178,6 @@
         <configuration>
           <to>
             <image>docker.io/zikossy/crediblepluse:latest</image>
-            <auth>
-              <username>zikossy</username>
-              <password>8hH7wBGbP+3x$#8</password>
-            </auth>
           </to>
           <from>
             <image>${jib-maven-plugin.image}</image>
