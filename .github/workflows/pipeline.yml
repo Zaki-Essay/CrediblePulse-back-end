@@ -39,8 +39,8 @@ jobs:
           ./mvnw package jib:build -am \
            -DskipTests \
            -Djib.httpTimeout=360000 \
-           -Djib.to.auth.username=${{ secrets.REGISTRY_USERNAME }} \
+           -Djib.to.auth.username=${{ secrets.DOCKER_HUB_USERNAME }} \
            -Djib.to.auth.password=${{ secrets.REGISTRY_PASSWORD }}
         env:
-          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+          REGISTRY_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
           REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
