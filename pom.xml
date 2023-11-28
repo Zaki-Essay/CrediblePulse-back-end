@@ -183,6 +183,9 @@
               <password>8hH7wBGbP+3x$#8</password>
             </auth>
           </to>
+          <from>
+            <image>${jib-maven-plugin.image}</image>
+          </from>
         </configuration>
       </plugin>
     </plugins>
