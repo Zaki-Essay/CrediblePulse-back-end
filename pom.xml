@@ -22,6 +22,8 @@
     <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
     <spotless.version>2.38.0</spotless.version>
     <org.jacoco.agent.version>0.8.10</org.jacoco.agent.version>
+    <maven.jib.version>3.3.2</maven.jib.version>
+    <jib-maven-plugin.image>registry.access.redhat.com/ubi8/openjdk-17:1.16-2</jib-maven-plugin.image>
   </properties>
   <dependencies>
     <dependency>
@@ -169,7 +171,28 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>${maven.jib.version}</version>
+        <configuration>
+          <allowInsecureRegistries>true</allowInsecureRegistries>
+          <container>
+            <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+            <volumes>
+              <volume>/config</volume>
+            </volumes>
+          </container>
+          <from>
+            <image>${jib-maven-plugin.image}</image>
+          </from>
+          <to>
+            <image>${env.REGISTRY_URI}/${project.artifactId}:${env.IMAGE_TAG}</image>
+          </to>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
 
 </project>
