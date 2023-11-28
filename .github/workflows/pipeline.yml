@@ -41,8 +41,8 @@ jobs:
            -DskipTests \
            -Djib.httpTimeout=360000 \
            -Djib.to.auth.username=${{ secrets.REGISTRY_USERNAME }} \
-           -Djib.to.auth.password=${{ secrets.REGISTRY_PASSWORD }}
+           -Djib.to.auth.password=${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         env:
           REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-          IMAGE_TAG: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-for-beginners:latest
+          REGISTRY_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          IMAGE: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-for-beginners:latest
