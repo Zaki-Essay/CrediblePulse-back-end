@@ -22,4 +22,5 @@ jobs:
 
       - name: Unit tests
         run: |
+          chmod +x mvnw
           ./mvnw clean verify
