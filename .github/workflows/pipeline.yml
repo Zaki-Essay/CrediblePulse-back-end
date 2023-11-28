@@ -73,6 +73,7 @@ jobs:
       - name: 📦 Build Docker Images
         if: github.event_name == 'push' && github.ref_name == 'main'
         run: |
+          chmod +x mvnw
           ./mvnw package jib:build -am \
            -DskipTests \
            -Djib.httpTimeout=360000 \
