@@ -37,12 +37,5 @@ jobs:
 
       - name: 📦 Build Docker Images
         run: |
-          ./mvnw package jib:build -am \
-           -DskipTests \
-           -Djib.httpTimeout=360000 \
-           -Djib.to.auth.username=${{ secrets.REGISTRY_USERNAME }} \
-           -Djib.to.auth.password=${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-        env:
-          REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-          REGISTRY_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          IMAGE: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-for-beginners:latest
+          chmod +x mvnw
+          ./mvnw compile com.google.cloud.tools:jib-maven-plugin:3.1.4:build
