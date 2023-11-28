@@ -3,10 +3,21 @@ name: Build & Deploy Spring app
 on:
   push:
     branches:
+      - main
       - dev
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - main
+      - dev
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
 
 jobs:
-  build-deploy:
+  build:
     name: Build and Deploy Spring boot for beginner
     runs-on: ubuntu-latest
     services:
@@ -30,6 +41,43 @@ jobs:
           cache: maven
 
       - name: Unit tests
+        if: github.event_name == 'pull_request' || github.event_name == 'push'
         run: |
           chmod +x mvnw
-          ./mvnw clean verify
+          ./mvnw clean verify    
+
+
+  build-and-push-image:
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    name: Publish Docker image
+    runs-on: ubuntu-latest
+
+    permissions:
+      packages: write
+      contents: read
+      id-token: write
+
+    needs: [ build ]
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: 📦 Build Docker Images
+        if: github.event_name == 'push' && github.ref_name == 'main'
+        run: |
+          ./mvnw package jib:build -am \
+           -DskipTests \
+           -Djib.httpTimeout=360000 \
+           -Djib.to.auth.username=${{ secrets.DOCKER_HUB_USERNAME }} \
+           -Djib.to.auth.password=${{ secrets.REGISTRY_PASSWORD }}
+        env:
+          REGISTRY_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}

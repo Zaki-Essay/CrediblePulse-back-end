@@ -21,6 +21,9 @@
     <keycloak-admin-client.version>22.0.1</keycloak-admin-client.version>
     <springdoc-openapi-starter-webmvc-ui.version>2.2.0</springdoc-openapi-starter-webmvc-ui.version>
     <spotless.version>2.38.0</spotless.version>
+    <org.jacoco.agent.version>0.8.10</org.jacoco.agent.version>
+    <maven.jib.version>3.3.2</maven.jib.version>
+    <jib-maven-plugin.image>registry.access.redhat.com/ubi8/openjdk-17:1.16-2</jib-maven-plugin.image>
   </properties>
   <dependencies>
     <dependency>
@@ -137,7 +140,52 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${org.jacoco.agent.version}</version>
+        <configuration>
+          <append>true</append>
+          <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+          <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+          <excludes>
+            <exclude>*MethodAccess</exclude>
+          </excludes>
+          <output>file</output>
+          <skip>${maven.test.skip}</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <phase>test-compile</phase>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <phase>verify</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>${maven.jib.version}</version>
+        <configuration>
+          <to>
+            <image>docker.io/zikossy/crediblepluse:latest</image>
+          </to>
+          <from>
+            <image>${jib-maven-plugin.image}</image>
+          </from>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
 
 </project>
