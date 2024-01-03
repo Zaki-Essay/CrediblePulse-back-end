@@ -11,7 +11,7 @@ public class TestController {
 
     CurrentUserProvider currentUserProvider;
 
-    @GetMapping("/test")
+    @GetMapping("/testApi")
     public String test() {
         return "hello " + currentUserProvider.getUsername();
     }
