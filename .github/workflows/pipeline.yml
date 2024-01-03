@@ -71,7 +71,7 @@ jobs:
           cache: maven
 
       - name: 📦 Build Docker Images
-        if: github.event_name == 'pull' && github.ref_name == 'main'
+        if: github.event_name == 'push' && github.ref_name == 'main'
         run: |
           chmod +x mvnw
           ./mvnw package jib:build -am \
